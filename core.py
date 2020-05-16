@@ -1,3 +1,4 @@
+import os
 from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Filters	
 from conf.settings import bot_token,bot_user_name, URL
 from flask import Flask
@@ -40,4 +41,5 @@ updater.start_polling()
 
 
 if __name__ == '__main__':
+	port = int(os.environ.get("PORT",5000))
 	app.run(host='0.0.0.0',port=port)
