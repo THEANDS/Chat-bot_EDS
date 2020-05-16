@@ -2,7 +2,7 @@ import os
 from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Filters	
 from conf.settings import bot_token,bot_user_name, URL
 from flask import Flask
-
+from comandos import comandos
 global TOKEN
 
 
@@ -18,6 +18,7 @@ def welcome(update, context):
 	for member in update.message.new_chat_members:
 		update.message.reply_text("{username} Welcome to the party!!\U0001F47E\nse apresente por favor e não esqueça de entrar no grupo de avisos:t.me/avisosEDS".format(username=member.username))
 	return 'ok'
+
 
 @app.route('/setwebhook',methods=['GET','POST'])
 def set_webhook():
