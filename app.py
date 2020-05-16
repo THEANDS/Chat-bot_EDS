@@ -16,8 +16,7 @@ app = Flask(__name__)
 @app.route('/{}'.format(TOKEN),methods=['POST'])
 def welcome(update, context):
 	for member in update.message.new_chat_members:
-		if member.username == 'AlfredP_bot'
-			pass
+		
 		update.message.reply_text("{username} Welcome to the party!!\U0001F47E\nse apresente por favor e não esqueça de entrar no grupo de avisos:t.me/avisosEDS".format(username=member.username))
 	return 'ok'
 
