@@ -28,9 +28,7 @@ def set_webhook():
 	else:
 		return "webhook setup failed"
 
-@app.route('/')
-def index():
-	return '.'
+
 
 welcome_handler = MessageHandler(Filters.status_update.new_chat_members,welcome)
 dispatcher.add_handler(welcome_handler)
@@ -38,7 +36,9 @@ dispatcher.add_handler(welcome_handler)
 updater.start_polling()
 
 
-
+@app.route('/')
+def index():
+	return '.'
 
 if __name__ == '__main__':
 	port = int(os.environ.get("PORT",5000))
