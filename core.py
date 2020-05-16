@@ -18,7 +18,7 @@ def welcome(update, context):
 		update.message.reply_text("{username} Welcome to the party!!\U0001F47E\nse apresente por favor e não esqueça de entrar no grupo de avisos:t.me/avisosEDS".format(username=member.username))
 	return 'ok'
 
-@app.route('/setWebhook',methods=['GET','POST'])
+@app.route('/setwebhook',methods=['GET','POST'])
 def set_webhook():
 	s = updater.bot.setWebhook('{URL}{HOOK}'.format(URL=URL,HOOK=TOKEN))
 
@@ -27,15 +27,16 @@ def set_webhook():
 	else:
 		return "webhook setup failed"
 
+@app.route('/')
+def index():
+	return '.'
 
 welcome_handler = MessageHandler(Filters.status_update.new_chat_members,welcome)
 dispatcher.add_handler(welcome_handler)
 
 updater.start_polling()
 
-@app.route('/')
-def index():
-	return '.'
+
 
 
 if __name__ == '__main__':
